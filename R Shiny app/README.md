@@ -1,11 +1,8 @@
 # Consensus clustering Shiny app
 
-This Shiny application, based on the diceR package provides an user interface to perform clustering algorithms such as : Kmeans, GMM, Spectral clustering and Affinity propagation on a given dataset. 
-  - Upload data, use PCA and visualize data
-  - Check different clustering algorithms (Kmeans,GMM,SC,AP)
-  - Perform consensus clustering with different input (nk, reps, p.item, consensus function)
+This Shiny application, based on the diceR package, provides an user interface to perform clustering algorithms such as : Kmeans, GMM, Spectral clustering and Affinity propagation on a given dataset. 
 
-Then consensus clustering will be performed depend on different input
+And also perform consensus clustering will be performed depend on different input.
 
 
 ## Installation
@@ -36,7 +33,10 @@ if(length(new.packages)) install.packages(new.packages)
 ```
 
 ## Usage
-Define the working directory wherever you upload this repo.
+When you download the repository set the path as the working directory.
+```r
+setwd()
+```
 Afterward compile the 'app.r' file :
 
 ```r
@@ -52,6 +52,11 @@ shinyApp(
 
 
 ```
+
+With the interfac you can:
+  - Upload data, use PCA and visualize data
+  - Check different clustering algorithms (Kmeans, GMM, SC, AP)
+  - Perform consensus clustering with different input (nk, reps, p.item, consensus functions)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
