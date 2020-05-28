@@ -1,23 +1,56 @@
-# Foobar
+# Consensus clustering Shiny app
 
-Foobar is a Python library for dealing with word pluralization.
+This Shiny application, based on the diceR package provides an user interface to perform clustering algorithms such as : Kmeans, GMM, Spectral clustering and Affinity propagation on a given dataset. 
+  - Upload data, use PCA and visualize data
+  - Check different clustering algorithms (Kmeans,GMM,SC,AP)
+  - Perform consensus clustering with different input (nk, reps, p.item, consensus function)
+
+Then consensus clustering will be performed depend on different input
+
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the IDE [Rstudio](https://rstudio.com/) to install the required packages.
+The following command will check, if is not present install it, and load the package.
 
-```bash
-pip install foobar
+
+```r
+list.of.packages <- c("shiny",
+                      "ggplot2",
+                      "DT",
+                      "GGally",
+                      "psych",
+                      "Hmisc",
+                      "mclust",
+                      "kernlab",
+                      "MASS",
+                      "factoextra",
+                      "apcluster",
+                      "knitr",
+                      "kableExtra",
+                      "diceR")
+
+# Load and install packages
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
 ```
 
 ## Usage
+Define the working directory wherever you upload this repo.
+Afterward compile the 'app.r' file :
 
-```python
-import foobar
+```r
+library(shiny)
+source('ui.R', local = TRUE)
+source('server.R')
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+
+shinyApp(
+  ui = ui,
+  server = server
+)
+
+
 ```
 
 ## Contributing
